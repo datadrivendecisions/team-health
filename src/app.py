@@ -48,6 +48,8 @@ def make_spider_chart(values, attribute_labels, title):
 
 def main():
     st.title("Team Health Assessment")
+    
+    name = st.text_input('First name', '---')
 
     # Dictionary to store the ratings
     ratings = {}
@@ -63,7 +65,7 @@ def main():
     if st.button("Show Results"):
         # Data preparation
         values = [ratings[attr] for attr in attributes_with_descriptions.keys()]
-        chart = make_spider_chart(values, list(attributes_with_descriptions.keys()), "Team Health Radar Chart")
+        chart = make_spider_chart(values, list(attributes_with_descriptions.keys()), f"{name}'s Team Health Radar Chart ")
         
         # Display the radar chart using Plotly
         st.plotly_chart(chart)
